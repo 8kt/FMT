@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find My Teacher</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="pxlas0">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">                            <!-- for BootStrap-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">      <!-- for Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >                                         <!-- for Icons-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>                                        <!-- for jQuery-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>            <!-- for BootStrap-->
+    <script type="text/javascript" src="prototype.js"></script>
+    <!-- for Ajax-->
+    
+    <script src="fmt.js"></script>
+    <link rel="stylesheet" href="fmt.css">
+
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="jumbotron center">
+            <img src="owl.png" id="owl">
+            <h1>Find My Teacher</h1>
+        </div>
+
+        <!-- Login Area ........................................-->   
+        <div id="login" class="show">
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                
+                	<div class="form-check-inline">
+                    	<label class="form-check-label"><input type="radio" class="form-check-input" name="optradio" id="student" value="student" checked>Student</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label"><input type="radio" class="form-check-input" name="optradio" id="teacher" value="teacher">Teacher</label>
+                    </div>
+                                     
+                    <div class="form-group">
+                        <label for="MISid">User Name: </label>
+                        <input type="text" class="form-control" value="" id="MISid" onclick="this.select()">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" value="" id="pwd" onclick="this.select()">
+                    </div>
+                    
+                    <hr>
+                    
+                    <button class="btn btn-secondary" onclick="login()">Login<br>to FMT</button>    
+                    <button class="btn btn-secondary" onclick="createAccount('student')">Create Student <br> Account</button>    
+                    <button class="btn btn-secondary" onclick="createAccount('teacher')">Create Teacher <br>Account</button>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            
+        </div>
+        <!-- end of Login area -->
+
+<!-- Create Student Area ......................................-->   
+        <div id="createS" class="hide">
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                                                  
+                    <div class="form-group">
+                        <label for="studentid">MISid: </label>
+                        <input type="text" class="form-control" value="" id="studentid" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First name: </label>
+                        <input type="text" class="form-control" value="" id="firstName" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name: </label>
+                        <input type="text" class="form-control" value="" id="lastName" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="text" class="form-control" value="" id="email" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd1">Password:</label>
+                        <input type="password" class="form-control" value="" id="pwd1" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd2">Re-enter password:</label>
+                        <input type="password" class="form-control" value="" id="pwd2" onclick="this.select()">
+                    </div>
+                    <hr>
+                    
+                    <button class="btn btn-secondary" onclick="saveUser('student')">Save Account</button>    
+                    
+                </div>
+                <div class="col-4"></div>
+            </div>
+            
+        </div>
+        <!-- end of Create Student area -->
+        
+        <!-- Create Teacher Area ..............................................-->   
+        <div id="createT" class="hide">
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                                                 
+                    <div class="form-group">
+                        <label for="teacherid">MISid: </label>
+                        <input type="text" class="form-control" value="" id="teacherid" onclick="this.select()">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title">Title: </label>
+                        <input type="text" class="form-control" value="" id="title" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Last name: </label>
+                        <input type="text" class="form-control" value="" id="surname" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="staffroom">Staff Room: </label>
+                        <input type="text" class="form-control" value="" id="staffroom" onclick="this.select()">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tpwd1">Password:</label>
+                        <input type="password" class="form-control" value="" id="tpwd1" onclick="this.select()">
+                    </div>
+                    <div class="form-group">
+                        <label for="tpwd2">Re-enter password:</label>
+                        <input type="password" class="form-control" value="" id="tpwd2" onclick="this.select()">
+                    </div>
+                    
+                    <hr>
+                    
+                    <button class="btn btn-secondary" onclick="saveUser('teacher')">Save Account</button>    
+                    
+                </div>
+                <div class="col-4"></div>
+            </div>
+            
+        </div>
+        <!-- end of Create Teacher area -->
+
+        <!-- student area ......................................-->
+        <div id="listTeach" class="hide center">
+            
+            <h2><span id="currentP">List my teachers</span></h2>
+            
+            <div id="listArea"></div>
+            
+                      
+            <br>
+            
+            <hr>
+           
+            <button class="btn btn-link" id="btnExit" onclick="preExitGame()">Quit</button> 
+
+        </div> 
+        <!-- end of student area -->
+        
+        <!-- teacher area ................................-->
+        <div id="addSubj" class="hide center">
+            
+            <h2><span id="currentP">Enter subjects</span></h2>
+            
+            <div id="subjects"></div>
+            
+			<div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                                                 
+                    <div class="form-group">
+                        <label for="subj1">Subject 1: </label>
+                        <input type="text" class="form-control" value="" id="subj1" onclick="this.select()">
+                    </div>
+                    
+                                        
+                    <hr>
+                    
+                    <button class="btn btn-secondary" onclick="addSubjects()">Save Subjects</button>    
+                    
+                </div>
+                <div class="col-4"></div>
+            </div>
+            
+
+            <hr>
+           
+            <button class="btn btn-link" id="btnExit" onclick="preExitGame()">Quit</button> 
+
+        </div> 
+        <!-- end of teacher area -->
+
+        <!-- Help Area ..............................................-->                
+        <div id="help" class="hide">
+            
+            <div class="right">
+                <button class="btn btn-secondary btn-sm" onclick="closeHelp()"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <h2>How to use the app</h2>
+                    <ul>
+                        <li>The first player starts by rolling the dice.</li>
+                        <li>They can continuing rolling, and accumulating the points of each roll until either:</li>
+                        <ul>
+                            <li>They choose to "bank" their points, and the next player takes their turn.</li>
+                            <li>They roll a "1", in which case they lose the accumulated points of this turn, and the next player takes their turn.</li>
+                            <li>The player wins the game by reaching the total points required.</li>
+                        </ul>
+                    </ul>
+                    <h4>Keyboard Controls</h4>
+                    <p>Keyboard shortcuts for the serious gamers...</p>
+                    <ul>
+                        <li>Player 1</li>
+                        <ul>
+                            <li><kbd>R</kbd> : Roll</li>
+                            <li><kbd>B</kbd> : Bank</li>
+                        </ul>
+                        <li>Player 2</li>
+                        <ul>
+                            <li><kbd>&#9650;</kbd> : Roll</li>
+                            <li><kbd>&#9660;</kbd> : Bank</li>
+                        </ul>                        
+                    </ul>                    
+                    <hr>
+                    <h2>About this game</h2>
+                    <p>An attempt to make a simple client-side game that is responsive to device types, engaging to play, and applies user experience considerations.</p>
+                    <p>Made Using:</p>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS
+                            <ul>
+                                <li><a href="https://www.w3schools.com/howto/howto_css_shake_image.asp" target="_blank">Shake Images</a></li>
+                                <li><a href="https://www.w3schools.com/howto/howto_css_image_effects.asp" target="_blank">Blur Images</a></li>                                
+                                <li><a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank">Screen Size Responsiveness using @media queries</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="https://www.w3schools.com/bootstrap4/default.asp" target="_blank">Bootstrap</a>
+                            <ul>
+                                <li><a href="https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp" target="_blank">Grid System</a></li>
+                                <li><a href="https://www.w3schools.com/bootstrap4/bootstrap_progressbars.asp" target="_blank">Progress Bars</a></li>
+                            </ul>
+                        </li>                        
+                        <li>Javascript
+                            <ul>
+                                <li><a href="https://www.w3schools.com/js/js_random.asp" target="_blank">Ramdom Numbers</a></li>
+                                <li><a href="https://www.w3schools.com/js/js_timing.asp" target="_blank">setInterval & setTimeout Timed Events</a></li>
+                                <li><a href="https://www.w3schools.com/graphics/game_sound.asp" target="_blank">Sounds</a></li>
+                            </ul>                        
+                        </li>
+                    </ul>
+                    <hr>
+                    <h2>To do list:</h2>
+                    <ul>
+                        <li>Player name labels look like buttons - find a better way to highlight current player</li>
+                        <li>Sounds</li>
+                            <ul>
+                                <li><del>Toggle On/Off</del> &#10003;</li>
+                                <li><del>Dice</del> &#10003;</li>        
+                                <li><del>Bank</del> &#10003;</li>
+                                <li><del>Greedy Pig</del> &#10003;</li>
+                                <li>Bad Luck (1 on first roll)</li>
+                                <li><del>Next Player</del> &#10003;</li>
+                                <li><del>Winner</del> &#10003;</li>
+                                <li>Play Sound from begining each time? Loop if needed?</li>
+                                <li>Better sounds?</li>
+                            </ul>                         
+                        <li>Random Player Start</li>
+                        <li>Winners Tally for multiple games</li>
+                        <li>More than 2 players?</li>
+                        <li>Options: "Return to Default" & Validation</li>
+                        <li><del>Keyboard Controls for each player</del> &#10003;</li>
+                        <li>Make responsive design of "stats" better by "stacking" columns below certain screen width.</li>
+                        <li>Add more possible options:
+                            <ul>
+                                <li>Increase Risk (bust on 1 & 2)</li>
+                                <li>Points go to other player if bust</li>        
+                                <li>Have to roll exact to win (no going over) - is this even possible? (without using "1")</li>
+                            </ul>                        
+                        </li>
+                    </ul>                    
+                    <hr>
+                    <button class="btn btn-secondary" onclick="closeHelp()">Back</button>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            
+        </div>
+        <!-- end of Help area -->
+
+    </div>
+    
+    <div class="footer">
+        <div class="row">
+            <div class="col center">
+                <button class="btn btn-link" id="btnHelp" onclick="showHelp()">How to Use & About this App</button>            
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
