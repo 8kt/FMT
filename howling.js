@@ -1,4 +1,7 @@
 // Initialise global variables
+
+// This comment was added by Joey to test commits.
+
 var currentPage = "login";
 var status = "student";
 var username = "";
