@@ -14,6 +14,9 @@ $sqlNewUser = "email='$email'";
 // SET $resNewUSer TO RUN mysql_query with $sqlNewUser
 $resNewUser = mysql_query($sqlNewUser) or die(mysql_error());
 
+
+// You could even do: INSERT into `students` (MISid, password, firstName, lastName, email) VALUES (`1234`, `p@ssword`, `john`, `peterson`, `jpeterson@google.com`)
+
 // DISPLAY "Your account has been registered"
 echo "Your account has been registered.";
 
